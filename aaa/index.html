@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>123456</title>
+</head>
+<body>
+  <div>123</div>
+
+  <script src="./index.js" type="module"></script>
+  <script>
+    var a = {//a的地址是 m：3
+      m:3
+    }
+
+    function aaa(m){//这里a是一个参数，
+      // a={
+      //   m:4
+      // }
+      m.m = 4
+    }
+    aaa(a)
+    console.log(a.m);
+
+  </script>
+</body>
+</html>
