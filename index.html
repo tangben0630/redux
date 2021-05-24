@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div>123</div>
+  <script type="module" src="./index.js"></script>
+  <script type="module">
+    import {createStore} from './create.js'
+    import {reducer} from './redux.js'
+    console.log(reducer,'redux');
+    let initState = {
+      counter: {
+        count: 0
+      },
+      info: {
+        name: '',
+        desc: ''
+      },
+
+    }
+
+    const store = createStore(reducer, initState)
+    store.subscribe(()=>{
+      const state = store.getState()
+      console.log(state,'huoqudeshuju');
+    })
+    store.dispatch({
+      type: 'INCREMENT',
+
+    })
+  </script>
+</body>
+</html>
