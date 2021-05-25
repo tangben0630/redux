@@ -27,7 +27,9 @@ export function createStore(reducer,initState){
   function getState(){
     return state
   }
-
+  // dispatch({
+  //   type: Symbol()
+  // })
   return {
     subscribe,
     dispatch,

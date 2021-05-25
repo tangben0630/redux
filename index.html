@@ -6,33 +6,93 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
+<style>
+  .btn{
+    margin: 100px auto;
+    width: 100px;
+    height: 50px;
+    background: blue;
+    color: #fff;
+    text-align: center;
+    line-height: 50px;
+    cursor: pointer;
+    user-select: none;
+  }
+</style>
 <body>
   <div>123</div>
+  <div class="btn">btn</div>
   <script type="module" src="./index.js"></script>
   <script type="module">
     import {createStore} from './create.js'
-    import {reducer} from './redux.js'
-    console.log(reducer,'redux');
-    let initState = {
-      counter: {
-        count: 0
-      },
-      info: {
-        name: '',
-        desc: ''
-      },
+    import {combineReducers} from './reducers/combine.js' 
+    import {countReducer} from './reducers/counter.js' 
+    import {infoReducer} from './reducers/info.js' 
 
+    // let initState = {
+    //   counter: {
+    //     count: 0
+    //   },
+    //   info: {
+    //     name: '',
+    //     desc: ''
+    //   },
+
+    // }
+    // const reducer2 = combineReducers({
+    //   countReducer,
+    //   infoReducer
+    // })
+    // const store = createStore(reducer2)
+    // const state = store.getState()
+    // store.subscribe(()=>{
+    //   console.log(state);
+    // })
+    // store.dispatch({
+    //   type: 'SET_ADD',
+    // })
+    // store.dispatch({
+    //   type: 'SET_ADD',
+    // })
+    // store.dispatch({
+    //   type: 'SET_DESC',
+    //   desc: '更改一下'
+    // })
+
+    // document.getElementsByClassName('btn')[0].onclick = function(){
+    //   store.dispatch({
+    //     type: 'SET_NAME',
+    //     name: '名字哈哈'
+    //   })
+    // }
+
+    const a = function(){
+      console.log('a 执行');
+    }
+    const b = function(){
+      console.log('b 执行');
+    }
+    const c = function(){
+      console.log('c 执行');
+    }
+    const d = function(){
+      console.log('d 执行');
     }
 
-    const store = createStore(reducer, initState)
-    store.subscribe(()=>{
-      const state = store.getState()
-      console.log(state,'huoqudeshuju');
-    })
-    store.dispatch({
-      type: 'INCREMENT',
+    const arr = []
+    arr.push(a)
+    arr.push(b)
+    arr.push(c)
+    arr.push(d)
 
+    const aa = arr.reduceRight((a, b)=> {
+      return function(...args){
+        console.log(args, 'args');
+        return a(b(...args))
+      }//(...args)=>a(b(...args))
     })
+    
+    console.log('===', aa());
   </script>
 </body>
 </html>

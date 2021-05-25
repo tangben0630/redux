@@ -14,7 +14,7 @@ export function infoReducer(state = initState, action){
     case 'SET_DESC':
       return {
         ...state,
-        name: action.desc
+        desc: action.desc
       }
       break;
     default:

@@ -2,9 +2,10 @@ let initState = {
   count: 0,
 }
 
-export function infoReducer(state = initState, action){
+export function countReducer(state = initState, action){
   switch (action.type) {
     case 'SET_ADD':
+      console.log('jinlai');
       return {
         ...state,
         name: action.count+1
